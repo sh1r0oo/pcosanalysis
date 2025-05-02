@@ -190,7 +190,7 @@ export default function DeepLearningModels() {
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-xl font-semibold">Deep Learning Models</h3>
         <div className="flex gap-2">
-          {["fnn", "cnn", "lstm", "gru", "mlp"].map((model) => (
+          {["fnn", "cnn", "lstm", "gru"].map((model) => (
             <button
               key={model}
               onClick={() => setSelectedModel(model)}
