@@ -47,7 +47,7 @@ export default function Hero() {
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-3">Features Analyzed</h3>
             <div className="text-4xl md:text-5xl font-bold text-white">
-              <AnimatedCounter value={45} />
+              <AnimatedCounter value={35} />
             </div>
           </div>
           

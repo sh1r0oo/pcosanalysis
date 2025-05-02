@@ -224,7 +224,7 @@ const Flowchart = () => {
                       </span>
                       <span className="text-white/80 flex items-center justify-center gap-2">
                         <CircleCheck className="h-4 w-4 text-blue-400" />
-                        LSTM-CNN
+                        LSTM
                       </span>
                       <span className="text-white/80 flex items-center justify-center gap-2">
                         <CircleCheck className="h-4 w-4 text-blue-400" />
@@ -306,7 +306,7 @@ export default function ProjectOverview() {
 
   const objectives = [
     "Develop a robust model for diagnosing PCOS using advanced AI techniques, leveraging both machine learning (ML) and deep learning (DL) algorithms.",
-    "Explore and evaluate various ML algorithms (Random Forest, Decision Tree, SVM, Logistic Regression, KNN) and deep learning models (FNN, 1D-CNN, LSTM-CNN, GRU, MLP) for PCOS detection.",
+    "Explore and evaluate various ML algorithms (Random Forest, Decision Tree, SVM, Logistic Regression, KNN) and deep learning models (FNN, 1D-CNN, LSTM, GRU, MLP) for PCOS detection.",
     "Prepare and preprocess data by normalizing it and addressing class imbalance using Synthetic Minority Over-sampling Technique (SMOTE).",
     "Implement feature selection techniques such as Recursive Feature Elimination (RFE) and SelectKBest to enhance model accuracy.",
     "Optimize model performance through k-fold cross-validation, hyperparameter tuning with GridSearchCV, and split validation, aiming to achieve high accuracy and precision.",
@@ -351,8 +351,7 @@ export default function ProjectOverview() {
                 Tree (DT), Support Vector Machine (SVM), Logistic Regression
                 (LR), and K-Nearest Neighbors (KNN), alongside DL frameworks
                 such as Feedforward Neural Networks (FNN), Convolutional Neural
-                Networks (CNN), Long Short-Term Memory - Convolutional Neural
-                Networks (LSTM-CNN), Gated Recurrent Units (GRU), and
+                Networks (CNN), Long Short-Term Memory (LSTM), Gated Recurrent Units (GRU), and
                 Multilayer Perceptrons (MLP).
               </p>
               <p>
@@ -371,7 +370,7 @@ export default function ProjectOverview() {
                 high score. However, the study also exposed the limitations of
                 certain models, such as DT and KNN, which underperformed despite
                 different optimizations. Moreover, DL architectures like
-                LSTM-CNN and GRU exhibited erratic validation accuracy, hinting
+                LSTM and GRU exhibited erratic validation accuracy, hinting
                 at inherent challenges in achieving consistent generalization.
               </p>
               <p>
@@ -503,7 +502,7 @@ export default function ProjectOverview() {
                       2
                     </span>
                     <span>
-                      Development of 5 DL architectures (FNN, CNN, LSTM-CNN, GRU,
+                      Development of 5 DL architectures (FNN, CNN, LSTM, GRU,
                       MLP)
                     </span>
                   </li>
