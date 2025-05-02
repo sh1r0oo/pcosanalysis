@@ -31,7 +31,7 @@ const Flowchart = () => {
   const sectionSpacing = 40;
 
   return (
-    <div ref={flowchartRef} className="mb-20">
+    <div ref={flowchartRef} className="mt-20 mb-20">
       <SectionHeading
         title="Overall System Design"
         subtitle="Flowchart of the PCOS detection system using machine learning and deep learning"
@@ -46,12 +46,20 @@ const Flowchart = () => {
         <GlassCard className="p-6">
           <div className="space-y-8">
             {/* Dataset */}
-            <GlassCard className="p-4 w-[250px] mx-auto">
+            <GlassCard className="p-4 w-[300px] mx-auto">
               <div className="flex flex-col items-center gap-4">
                 <Database className="h-8 w-8 text-blue-400" />
-                <span className="text-xl font-semibold text-white text-center">
-                  Dataset
-                </span>
+                <span className="text-xl font-semibold text-white text-center whitespace-nowrap">Dataset Collection</span>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <CheckCircle2 className="h-5 w-5 text-green-400" />
+                    <span className="text-white/90">Dataset with 41 clinical features</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <CheckCircle2 className="h-5 w-5 text-green-400" />
+                    <span className="text-white/90">541 patients data collected</span>
+                  </div>
+                </div>
               </div>
             </GlassCard>
 
@@ -67,11 +75,11 @@ const Flowchart = () => {
             </motion.div>
 
             {/* Data Pre-processing */}
-            <GlassCard className="p-4 w-[250px] mx-auto">
+            <GlassCard className="p-4 w-[300px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center">
-                  <SlidersHorizontal className="h-6 w-6 text-purple-400" />
-                  Data Pre-processing
+                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center whitespace-nowrap">
+                  <SlidersHorizontal className="h-5 w-5 text-purple-400 mr-2" />
+                  Data Preprocessing
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -80,15 +88,11 @@ const Flowchart = () => {
                   </div>
                   <div className="flex items-center gap-4">
                     <CheckCircle2 className="h-5 w-5 text-green-400" />
-                    <span className="text-white/90">
-                      Normalization of Dataset
-                    </span>
+                    <span className="text-white/90">Normalization of Dataset</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <CheckCircle2 className="h-5 w-5 text-green-400" />
-                    <span className="text-white/90">
-                      SMOTE to balance the dataset
-                    </span>
+                    <span className="text-white/90">SMOTE to balance the dataset</span>
                   </div>
                 </div>
               </div>
@@ -106,10 +110,10 @@ const Flowchart = () => {
             </motion.div>
 
             {/* Feature Selection */}
-            <GlassCard className="p-4 w-[250px] mx-auto">
+            <GlassCard className="p-4 w-[300px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center">
-                  <ListChecks className="h-6 w-6 text-yellow-400" />
+                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center whitespace-nowrap">
+                  <ListChecks className="h-5 w-5 text-yellow-400 mr-2" />
                   Feature Selection
                 </h3>
                 <div className="space-y-4">
@@ -137,24 +141,20 @@ const Flowchart = () => {
             </motion.div>
 
             {/* Validation Techniques */}
-            <GlassCard className="p-4 w-[250px] mx-auto">
+            <GlassCard className="p-4 w-[300px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center">
-                  <Activity className="h-6 w-6 text-pink-400" />
-                  Validation Techniques
+                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center whitespace-nowrap">
+                  <Layers3 className="h-5 w-5 text-red-400 mr-2" />
+                  Model Training
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <CheckCircle2 className="h-5 w-5 text-green-400" />
-                    <span className="text-white/90">
-                      K-Fold Cross Validation Technique
-                    </span>
+                    <span className="text-white/90">K-Fold Cross Validation</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <CheckCircle2 className="h-5 w-5 text-green-400" />
-                    <span className="text-white/90">
-                      Split Validation Technique
-                    </span>
+                    <span className="text-white/90">Split Validation</span>
                   </div>
                 </div>
               </div>
@@ -172,68 +172,64 @@ const Flowchart = () => {
             </motion.div>
 
             {/* Running the Model */}
-            <GlassCard className="p-4 w-[250px] mx-auto">
+            <GlassCard className="p-4 w-[300px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center">
-                  <Zap className="h-6 w-6 text-orange-400" />
+                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center whitespace-nowrap">
+                  <Zap className="h-5 w-5 text-orange-400 mr-2" />
                   Running the Model
                 </h3>
                 <div className="flex gap-12">
                   {/* ML Models */}
                   <div className="space-y-4">
-                    <h4 className="text-lg font-medium text-white/90 text-center">
-                      ML Models
-                    </h4>
-                    <div className="space-y-2">
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        RF
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        DT
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        SVM
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        LR
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        KNN
-                      </span>
+                    <h4 className="text-lg font-medium text-white/90 text-center">ML Models</h4>
+                    <div className="space-y-2 w-24">
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>RF</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>DT</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>SVM</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>LR</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>KNN</span>
+                      </div>
                     </div>
                   </div>
 
                   {/* DL Models */}
                   <div className="space-y-4">
-                    <h4 className="text-lg font-medium text-white/90 text-center">
-                      DL Models
-                    </h4>
-                    <div className="space-y-2">
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        FNN
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        CNN
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        LSTM
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        MLP
-                      </span>
-                      <span className="text-white/80 flex items-center justify-center gap-2">
-                        <CircleCheck className="h-4 w-4 text-blue-400" />
-                        GRU
-                      </span>
+                    <h4 className="text-lg font-medium text-white/90 text-center">DL Models</h4>
+                    <div className="space-y-2 w-24">
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>FNN</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>CNN</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>LSTM</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>MLP</span>
+                      </div>
+                      <div className="text-white/80 flex items-center justify-start gap-2">
+                        <CircleCheck className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span>GRU</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -252,10 +248,10 @@ const Flowchart = () => {
             </motion.div>
 
             {/* Evaluation Metrics */}
-            <GlassCard className="p-4 w-[250px] mx-auto">
+            <GlassCard className="p-4 w-[300px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center">
-                  <BarChart className="h-6 w-6 text-emerald-400" />
+                <h3 className="text-xl font-semibold text-white flex items-center gap-2 text-center whitespace-nowrap">
+                  <BarChart className="h-5 w-5 text-emerald-400 mr-2" />
                   Evaluation Metrics
                 </h3>
                 <div className="space-y-2">
@@ -274,10 +270,6 @@ const Flowchart = () => {
                   <div className="flex items-center gap-4">
                     <CheckCircle2 className="h-5 w-5 text-green-400" />
                     <span className="text-white/90">F1-Score</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <CheckCircle2 className="h-5 w-5 text-green-400" />
-                    <span className="text-white/90">ROC-AUC</span>
                   </div>
                 </div>
               </div>

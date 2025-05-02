@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import GlassCard from "@/components/ui/GlassCard";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from "recharts";
-import { motion } from "framer-motion";
 
 const dlResults = [
   { name: 'FNN', Accuracy: 98, Precision: 98, Recall: 98, F1Score: 98, ROC_AUC: 98 },
@@ -236,40 +236,69 @@ export default function DeepLearningModels() {
             </div>
           </div>
 
-          <div
+          <motion.div
             key={selectedDLModelWithTuning}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.4, 
+              type: "spring", 
+              stiffness: 100, 
+              damping: 10,
+              staggerChildren: 0.1
+            }}
             className="max-w-xl mx-auto"
           >
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedDLModelWithTuning].truePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedDLModelWithTuning].falsePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedDLModelWithTuning].falseNegative}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedDLModelWithTuning].trueNegative}
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div >
+          </motion.div>
         </GlassCard>
       </div>
 

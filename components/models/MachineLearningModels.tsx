@@ -440,39 +440,65 @@ export default function MachineLearningModels() {
 
           <motion.div
             key={selectedModelNoTuning}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.4, 
+              type: "spring", 
+              stiffness: 100, 
+              damping: 10,
+              staggerChildren: 0.1
+            }}
             className="max-w-xl mx-auto"
           >
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataNoTuning[selectedModelNoTuning].truePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataNoTuning[selectedModelNoTuning].falsePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataNoTuning[selectedModelNoTuning].falseNegative}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataNoTuning[selectedModelNoTuning].trueNegative}
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </GlassCard>
@@ -498,39 +524,65 @@ export default function MachineLearningModels() {
 
           <motion.div
             key={selectedModelWithTuning}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.4, 
+              type: "spring", 
+              stiffness: 100, 
+              damping: 10,
+              staggerChildren: 0.1
+            }}
             className="max-w-xl mx-auto"
           >
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedModelWithTuning].truePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedModelWithTuning].falsePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedModelWithTuning].falseNegative}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixDataWithTuning[selectedModelWithTuning].trueNegative}
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </GlassCard>
@@ -556,39 +608,65 @@ export default function MachineLearningModels() {
 
           <motion.div
             key={selectedModel}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.4, 
+              type: "spring", 
+              stiffness: 100, 
+              damping: 10,
+              staggerChildren: 0.1
+            }}
             className="max-w-xl mx-auto"
           >
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixData[selectedModel].truePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Positive</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixData[selectedModel].falsePositive}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-orange-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-orange-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
                 <p className="text-sm text-white/80 mb-2">False Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixData[selectedModel].falseNegative}
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-green-500/20 p-6 rounded-lg text-center">
+              <motion.div 
+                className="bg-green-500/20 p-6 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
                 <p className="text-sm text-white/80 mb-2">True Negative</p>
                 <p className="text-3xl font-bold text-white">
                   {confusionMatrixData[selectedModel].trueNegative}
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </GlassCard>

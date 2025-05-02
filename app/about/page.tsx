@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { 
   MicroscopeIcon, 
   GraduationCap, 
@@ -16,28 +17,34 @@ export default function About() {
   const teamMembers = [
     {
       name: "Khandaker Adeba Tabassum",
-      title: "Lead Researcher",
-      photo: "public/images/team/adeba.jpg",
+      photo: "/images/team/adeba.jpg",
       university: "Islamic University Of Technology",
       id: "200021102"
     },
     {
       name: "Sadat Al Rashad",
-      title: "Clinical Advisor",
-      photo: "public/images/team/sadat.jpg",
-       university: "Islamic University Of Technology",
+      photo: "/images/team/sadat.jpg",
+      university: "Islamic University Of Technology",
       id: "200021106"
     },
     {
       name: "Md. Nazmul Aman",
-      title: "Data Scientist",
-      photo: "public/images/team/nazmul.jpg",
-       university: "Islamic University Of Technology",
+      photo: "/images/team/nazmul.jpg",
+      university: "Islamic University Of Technology",
       id: "200021132"
     },
   ];
 
   const displayedMembers = teamMembers.slice(0, 3);
+  
+  // Supervisor data
+  const supervisor = {
+    name: "Md. Arefin Rabbi Emon",
+    title: "Lecturer",
+    department: "Department of Electrical and Electronic Engineering",
+    university: "Islamic University of Technology",
+    photo: "https://eee.iutoic-dhaka.edu/uploads/img/1669798959_1344.jpg"
+  };
   
   return (
     <div className="container mx-auto px-4 py-20">
@@ -52,10 +59,56 @@ export default function About() {
           align="center"
         />
         
+        {/* Supervisor Section */}
+        <div className="mt-16">
+          <SectionHeading
+            title="Project Supervisor"
+            subtitle="Guiding our research with expertise and vision"
+            align="center"
+          />
+          <div className="max-w-2xl mx-auto mt-10">
+            <GlassCard>
+              <motion.div 
+                className="flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white/20 flex-shrink-0">
+                  <Image 
+                    src={supervisor.photo} 
+                    alt={supervisor.name} 
+                    width={192} 
+                    height={192} 
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="text-center w-full">
+                  <h3 className="text-2xl font-semibold text-white mb-2">{supervisor.name}</h3>
+                  <p className="text-white/80 mb-3 text-lg">{supervisor.title}</p>
+                  <div className="text-white/70 space-y-2">
+                    <div className="flex items-center justify-center">
+                      <School className="w-5 h-5 mr-2" />
+                      <span>{supervisor.department}</span>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Users className="w-5 h-5 mr-2" />
+                      <span>{supervisor.university}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </GlassCard>
+          </div>
+        </div>
+
         {/* Team Members */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold mb-8 text-center">Meet Our Team</h3>
-          
+        <div className="mt-16">
+          <SectionHeading
+            title="Our Research Team"
+            subtitle="Dedicated researchers working to advance PCOS detection"
+            align="center"
+          />
           <div className="flex gap-6 justify-center">
             {displayedMembers.map((member, index) => (
               <motion.div
@@ -72,9 +125,9 @@ export default function About() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h4 className="font-semibold text-center">{member.name}</h4>
-                  <p className="text-sm text-white/70 text-center">{member.university}</p>
-                  <p className="text-sm text-white/70 text-center">{member.id}</p>
+                  <h4 className="text-lg font-semibold text-center">{member.name}</h4>
+                  <p className="text-base text-white/70 text-center">{member.university}</p>
+                  <p className="text-base text-white/70 text-center">{member.id}</p>
                 </GlassCard>
               </motion.div>
             ))}
@@ -83,8 +136,8 @@ export default function About() {
         
         {/* Acknowledgments */}
         <div className="mt-8 p-4 bg-blue-500/10 rounded-lg">
-          <h4 className="text-xl font-semibold text-center mb-2">Acknowledgments</h4>
-          <p className="text-white/80 text-sm leading-relaxed">
+          <h4 className="text-2xl font-semibold text-center mb-4">Acknowledgments</h4>
+          <p className="text-white/80 text-base leading-relaxed">
             We extend our gratitude to the participants who contributed to this study and the anonymous reviewers who provided valuable feedback on our research methodology. Special thanks to our supervisor, Arefin Rabbi Emon, Lecturer, IUT, for his guidance and support throughout the project. We also thank the Department of Computational Medicine for providing computational resources and technical support.
           </p>
         </div>

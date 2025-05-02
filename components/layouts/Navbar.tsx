@@ -12,6 +12,7 @@ const navItems = [
   { name: "Project Overview", path: "/project-overview" },
   { name: "Results & Visualizations", path: "/results-and-visualizations" },
   { name: "Insights & Discussion", path: "/insights-discussion" },
+  { name: "References", path: "/references" },
   { name: "About", path: "/about" },
 ];
 
