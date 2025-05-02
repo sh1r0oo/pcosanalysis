@@ -17,19 +17,19 @@ export default function About() {
   const teamMembers = [
     {
       name: "Khandaker Adeba Tabassum",
-      photo: "/images/team/adeba.jpg",
+      photo: "/images/user-avatar.svg",
       university: "Islamic University Of Technology",
       id: "200021102"
     },
     {
       name: "Sadat Al Rashad",
-      photo: "/images/team/sadat.jpg",
+      photo: "/images/user-avatar.svg",
       university: "Islamic University Of Technology",
       id: "200021106"
     },
     {
       name: "Md. Nazmul Aman",
-      photo: "/images/team/nazmul.jpg",
+      photo: "/images/user-avatar.svg",
       university: "Islamic University Of Technology",
       id: "200021132"
     },
