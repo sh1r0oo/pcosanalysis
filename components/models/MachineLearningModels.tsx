@@ -86,7 +86,7 @@ const confusionMatrixDataNoTuning = {
     falseNegative: 3,
     trueNegative: 29
   }
-};
+} as const;
 
 // Confusion matrix data for cross-validation (with tuning)
 const confusionMatrixDataWithTuning = {
@@ -120,7 +120,7 @@ const confusionMatrixDataWithTuning = {
     falseNegative: 3,
     trueNegative: 32
   }
-};
+} as const;
 
 // Confusion matrix data for split validation
 const confusionMatrixData = {
@@ -154,7 +154,7 @@ const confusionMatrixData = {
     falseNegative: 11,
     trueNegative: 62
   }
-};
+} as const;
 
 // Best parameters data
 const bestParameters = {
@@ -182,8 +182,7 @@ const bestParameters = {
     weights: "Distance",
     metric: "Manhattan"
   }
-};
-
+} as const;
 
 // ROC data for ML models
 const mlRocData = [
@@ -218,6 +217,7 @@ const mlRocData = [
   { model: "KNN", fpr: 0.90, tpr: 0.96 },
   { model: "KNN", fpr: 1.00, tpr: 1.00 },
 ];
+
 // ML ROC AUC data
 const mlResultsRocAuc = [
   { name: 'RF', roc_auc: 0.95 },
@@ -228,10 +228,10 @@ const mlResultsRocAuc = [
 ];
 
 export default function MachineLearningModels() {
-  const [selectedModelNoTuning, setSelectedModelNoTuning] = useState("Random Forest");
-  const [selectedModelWithTuning, setSelectedModelWithTuning] = useState("Random Forest");
-  const [selectedModel, setSelectedModel] = useState("Random Forest");
-  const [selectedBestParamsModel, setSelectedBestParamsModel] = useState("Random Forest");
+  const [selectedModelNoTuning, setSelectedModelNoTuning] = useState<keyof typeof confusionMatrixDataNoTuning>("Random Forest");
+  const [selectedModelWithTuning, setSelectedModelWithTuning] = useState<keyof typeof confusionMatrixDataWithTuning>("Random Forest");
+  const [selectedModel, setSelectedModel] = useState<keyof typeof confusionMatrixData>("Random Forest");
+  const [selectedBestParamsModel, setSelectedBestParamsModel] = useState<keyof typeof bestParameters>("Random Forest");
   const [showRFE, setShowRFE] = useState(true);
   const [showControls, setShowControls] = useState(false);
   const [selectedRocModel, setSelectedRocModel] = useState<string>("RF");
@@ -252,7 +252,7 @@ export default function MachineLearningModels() {
   const matrixInView = useInView(matrixRef, { once: true, amount: 0.2 });
 
   const mlRocDataFiltered = mlRocData.filter(item => item.model === selectedRocModel);
-  const modelColors = {
+  const modelColors: Record<string, string> = {
     "Random Forest": "rgba(99, 102, 241, 0.8)",
     "Decision Tree": "rgba(139, 92, 246, 0.8)",
     "SVM": "rgba(236, 72, 153, 0.8)",
@@ -429,7 +429,7 @@ export default function MachineLearningModels() {
               {Object.keys(confusionMatrixDataNoTuning).map((model) => (
                 <button
                   key={model}
-                  onClick={() => setSelectedModelNoTuning(model)}
+                  onClick={() => setSelectedModelNoTuning(model as keyof typeof confusionMatrixDataNoTuning)}
                   className={`px-4 py-2 rounded-lg transition-colors ${selectedModelNoTuning === model ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'}`}
                 >
                   {model === "Logistic Regression" ? "LR" : model}
@@ -487,7 +487,7 @@ export default function MachineLearningModels() {
               {Object.keys(confusionMatrixDataWithTuning).map((model) => (
                 <button
                   key={model}
-                  onClick={() => setSelectedModelWithTuning(model)}
+                  onClick={() => setSelectedModelWithTuning(model as keyof typeof confusionMatrixDataWithTuning)}
                   className={`px-4 py-2 rounded-lg transition-colors ${selectedModelWithTuning === model ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'}`}
                 >
                   {model === "Logistic Regression" ? "LR" : model}
@@ -545,7 +545,7 @@ export default function MachineLearningModels() {
               {Object.keys(confusionMatrixData).map((model) => (
                 <button
                   key={model}
-                  onClick={() => setSelectedModel(model)}
+                  onClick={() => setSelectedModel(model as keyof typeof confusionMatrixData)}
                   className={`px-4 py-2 rounded-lg transition-colors ${selectedModel === model ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'}`}
                 >
                   {model === "Logistic Regression" ? "LR" : model}
@@ -603,7 +603,7 @@ export default function MachineLearningModels() {
               {Object.keys(bestParameters).map((model) => (
                 <button
                   key={model}
-                  onClick={() => setSelectedBestParamsModel(model)}
+                  onClick={() => setSelectedBestParamsModel(model as keyof typeof bestParameters)}
                   className={`px-4 py-2 rounded-lg transition-colors ${selectedBestParamsModel === model ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'}`}
                 >
                   {model === "Logistic Regression" ? "LR" : model}

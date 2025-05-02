@@ -55,6 +55,7 @@ const rocData = [
     { model: "MLP", fpr: 0.75, tpr: 0.985 },
     { model: "MLP", fpr: 1.00, tpr: 1.00 }
 ];
+
 const confusionMatrixDataWithTuning = {
   "FNN": {
     "truePositive": 51,
@@ -86,7 +87,7 @@ const confusionMatrixDataWithTuning = {
     "falseNegative": 6,
     "trueNegative": 68
   }
-};
+} as const;
 
 const bestParameters = {
   "FNN": {
@@ -115,35 +116,36 @@ const bestParameters = {
     "hidden_layer_sizes": "(64, 32)",
     "solver": "adam"
   }
-};
+} as const;
 
+type ModelName = keyof typeof confusionMatrixDataWithTuning;
+
+const modelColors: { [key: string]: string } = {
+  "FNN": "rgba(99, 102, 241, 0.8)",
+  "CNN": "rgba(139, 92, 246, 0.8)",
+  "LSTM": "rgba(236, 72, 153, 0.8)",
+  "GRU": "rgba(14, 165, 233, 0.8)",
+  "MLP": "rgba(255, 107, 107, 0.8)"
+};
 
 export default function DeepLearningModels() {
   const [selectedModel, setSelectedModel] = useState("fnn");
-  const [selectedDLModelWithTuning, setSelectedDLModelWithTuning] = useState("FNN");
+  const [selectedDLModelWithTuning, setSelectedDLModelWithTuning] = useState<ModelName>("FNN");
   const [selectedRocModel, setSelectedRocModel] = useState<string>("FNN");
   const [selectedModelRocAuc, setSelectedModelRocAuc] = useState<number | null>(dlResultsRocAuc.find(model => model.name === "FNN")?.roc_auc || null);
-    const [selectedBestParamsModel, setSelectedBestParamsModel] = useState("FNN");
-
-  const modelColors = {
-    "FNN": "rgba(99, 102, 241, 0.8)",
-    "CNN": "rgba(139, 92, 246, 0.8)",
-    "LSTM": "rgba(236, 72, 153, 0.8)",
-    "GRU": "rgba(14, 165, 233, 0.8)",
-    "MLP": "rgba(255, 107, 107, 0.8)"
-  };
+  const [selectedBestParamsModel, setSelectedBestParamsModel] = useState<keyof typeof bestParameters>("FNN");
 
   const rocDataFiltered = rocData.filter(item => item.model === selectedRocModel);
 
-    const handleRocModelClick = (modelName: string) => {
-        setSelectedRocModel(modelName);
-        const rocAucValue = dlResultsRocAuc.find(model => model.name === modelName)?.roc_auc || null;
-        setSelectedModelRocAuc(rocAucValue);
-    };
+  const handleRocModelClick = (modelName: string) => {
+    setSelectedRocModel(modelName);
+    const rocAucValue = dlResultsRocAuc.find(model => model.name === modelName)?.roc_auc || null;
+    setSelectedModelRocAuc(rocAucValue);
+  };
 
-    const handleBestParamsModelClick = (modelName: string) => {
-        setSelectedBestParamsModel(modelName);
-    };
+  const handleBestParamsModelClick = (modelName: keyof typeof bestParameters) => {
+    setSelectedBestParamsModel(modelName);
+  };
 
   return (
     <div className="w-full space-y-8">
@@ -220,7 +222,7 @@ export default function DeepLearningModels() {
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-xl font-semibold">Confusion Matrix</h3>
             <div className="flex gap-2">
-              {Object.keys(confusionMatrixDataWithTuning).map((model) => (
+              {(Object.keys(confusionMatrixDataWithTuning) as ModelName[]).map((model) => (
                 <button
                   key={model}
                   onClick={() => setSelectedDLModelWithTuning(model)}
@@ -332,7 +334,7 @@ export default function DeepLearningModels() {
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-semibold">Best Parameters from Hyperparameter Training</h3>
               <div className="flex gap-2">
-                {Object.keys(bestParameters).map((model) => (
+                {(Object.keys(bestParameters) as Array<keyof typeof bestParameters>).map((model) => (
                   <button
                     key={model}
                     onClick={() => handleBestParamsModelClick(model)}

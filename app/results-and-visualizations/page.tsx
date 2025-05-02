@@ -272,76 +272,76 @@ export default function ResultsAndVisualizations() {
 
         {/* ML vs DL Results */}
         <div className="mb-16">
-          <GlassCard
-            className="relative"
-            onMouseEnter={() => setShowControls(true)}
-            onMouseLeave={() => setShowControls(false)}
-          >
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold">
-                Feature Selection Method Comparison: {showRFE ? 'RFE' : 'MI'}
-              </h3>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setShowRFE(true)}
-                  className={`px-4 py-2 rounded-lg transition-colors ${showRFE ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-                    }`}
-                >
-                  RFE
-                </button>
-                <button
-                  onClick={() => setShowRFE(false)}
-                  className={`px-4 py-2 rounded-lg transition-colors ${!showRFE ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-                    }`}
-                >
-                  MI
-                </button>
-              </div>
-            </div>
-
-            <motion.div
-              key={showRFE ? 'rfe' : 'mi'}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="h-[400px]"
+          <GlassCard className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setShowControls(true)}
+              onMouseLeave={() => setShowControls(false)}
             >
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={showRFE ? rfeData : miData}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                  <XAxis
-                    dataKey="name"
-                    tick={{ fill: '#ffffff', opacity: 0.8 }}
-                  />
-                  <YAxis
-                    tick={{ fill: '#ffffff', opacity: 0.8 }}
-                    domain={[80, 100]}
-                    label={{
-                      value: 'Percentage (%)',
-                      angle: -90,
-                      position: 'insideLeft',
-                      fill: '#ffffff',
-                    }}
-                  />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'rgba(10, 10, 20, 0.8)',
-                      borderRadius: '8px',
-                      borderColor: 'rgba(255, 255, 255, 0.2)',
-                      color: '#ffffff'
-                    }}
-                  />
-                  <Legend />
-                  <Bar dataKey="Accuracy" fill="rgba(99, 102, 241, 0.8)" />
-                  <Bar dataKey="Precision" fill="rgba(139, 92, 246, 0.8)" />
-                  <Bar dataKey="Recall" fill="rgba(236, 72, 153, 0.8)" />
-                  <Bar dataKey="F1Score" fill="rgba(14, 165, 233, 0.8)" />
-                </BarChart>
-              </ResponsiveContainer>
-            </motion.div>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-semibold">
+                  Feature Selection Method Comparison: {showRFE ? 'RFE' : 'MI'}
+                </h3>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setShowRFE(true)}
+                    className={`px-4 py-2 rounded-lg transition-colors ${showRFE ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'}`}
+                  >
+                    RFE
+                  </button>
+                  <button
+                    onClick={() => setShowRFE(false)}
+                    className={`px-4 py-2 rounded-lg transition-colors ${!showRFE ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'}`}
+                  >
+                    MI
+                  </button>
+                </div>
+              </div>
+
+              <motion.div
+                key={showRFE ? 'rfe' : 'mi'}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="h-[400px]"
+              >
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={showRFE ? rfeData : miData}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
+                    <XAxis
+                      dataKey="name"
+                      tick={{ fill: '#ffffff', opacity: 0.8 }}
+                    />
+                    <YAxis
+                      tick={{ fill: '#ffffff', opacity: 0.8 }}
+                      domain={[80, 100]}
+                      label={{
+                        value: 'Percentage (%)',
+                        angle: -90,
+                        position: 'insideLeft',
+                        fill: '#ffffff',
+                      }}
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: 'rgba(10, 10, 20, 0.8)',
+                        borderRadius: '8px',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        color: '#ffffff'
+                      }}
+                    />
+                    <Legend />
+                    <Bar dataKey="Accuracy" fill="rgba(99, 102, 241, 0.8)" />
+                    <Bar dataKey="Precision" fill="rgba(139, 92, 246, 0.8)" />
+                    <Bar dataKey="Recall" fill="rgba(236, 72, 153, 0.8)" />
+                    <Bar dataKey="F1Score" fill="rgba(14, 165, 233, 0.8)" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </motion.div>
+            </div>
           </GlassCard>
         </div>
 
